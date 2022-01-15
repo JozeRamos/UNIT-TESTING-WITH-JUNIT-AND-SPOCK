@@ -63,7 +63,8 @@ public class ListAggregatorTest {
     @Test
     public void distinct_bug_8726(){
         ListAggregator aggregator = new ListAggregator();
-        int distinct = aggregator.distinct(Arrays.asList(1,2,4,2));
+        ListDeduplicator deduplicator = new ListDeduplicator();
+        int distinct = aggregator.distinct(Arrays.asList(1, 2, 4, 2), deduplicator);
 
         Assertions.assertEquals(3,distinct);
     }
