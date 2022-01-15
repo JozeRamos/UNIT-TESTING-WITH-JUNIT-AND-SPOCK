@@ -47,7 +47,8 @@ public class ListAggregatorTest {
     @Test
     public void distinct() {
         ListAggregator aggregator = new ListAggregator();
-        int distinct = aggregator.distinct(list);
+        ListDeduplicator deduplicator = new ListDeduplicator();
+        int distinct = aggregator.distinct(list,deduplicator);
 
         Assertions.assertEquals(4, distinct);
     }
